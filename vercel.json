@@ -1,22 +1,17 @@
 {
   "buildCommand": "npm run setup && npm run build",
-  "outputDirectory": "build/client",
+  "installCommand": "npm install",
+  "framework": null,
   "functions": {
-    "app/entry.server.tsx": {
-      "runtime": "nodejs20.x"
-    }
+    "build/server/index.js": "@vercel/node"
   },
   "routes": [
     {
-      "src": "/build/(.*)",
-      "dest": "/build/$1"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/app/entry.server.tsx"
+      "dest": "/build/server/index.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
