@@ -3,7 +3,9 @@
   "installCommand": "npm install",
   "framework": null,
   "functions": {
-    "build/server/index.js": "@vercel/node"
+    "build/server/index.js": {
+      "runtime": "@vercel/node"
+    }
   },
   "routes": [
     {
